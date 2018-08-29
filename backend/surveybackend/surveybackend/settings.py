@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '3zb%8q^ef2te)2ua)ro5=pat#$it3ult_dp7y%oangr)$swzrs'
+SECRET_KEY = os.environ['NORC_CHALLENGE_APP_SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'djangobasic.apps.DjangobasicConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -76,7 +77,10 @@ WSGI_APPLICATION = 'surveybackend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.environ['NORC_CHALLENGE_APP_NAME'],
+        'USER': os.environ['NORC_CHALLENGE_APP_USER'],
+        'PASSWORD': os.environ['NORC_CHALLENGE_APP_PASS'],
+        'HOST': os.environ['NORC_CHALLENGE_APP_HOST'],
     }
 }
 

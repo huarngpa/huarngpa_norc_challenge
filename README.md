@@ -1,6 +1,24 @@
-# Project Title
+# NORC Challenge Application (Early Childhood Education)
 
-One Paragraph of project description goes here
+This is an interview challenge application prepared for the NORC interview team. The focus of this project is to demonstrate technical skill in relevant web technologies (django, Vue.js, etc.). The particular theme for the application is to create a simple, survey web form for the Early Childhood Education research area.
+
+Work with this challenge app is ongoing. See below for achieved and planned delivery objectives:
+
+* <del>Deploy on AWS RDS (databases)</del>
+* Demonstrate understanding of django ORM/models
+* ...
+* Deploy basic django application on AWS EC2
+* Demonstrate Facebook OAuth2 implementation
+* Demonstrate understanding of django testing
+* ...
+* ...
+* ...
+* Deploy Route53 DNS
+* Dockerize the application(s)
+* Configure Kubernetes to cluster docker containers
+* ...
+* ...
+* ...
 
 ## Getting Started
 
@@ -13,6 +31,12 @@ What things you need to install the software and how to install them
 ```
 Give examples
 ```
+
+## Built With
+
+* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
+* [Maven](https://maven.apache.org/) - Dependency Management
+* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
 
 ### Installing
 
@@ -54,27 +78,33 @@ Give an example
 
 ## Deployment
 
+### Deploying Frontend Systems
+
+### Deploying Backend Systems
+
+On the target (linux) machine, you need to define the following environment variables:
+
+```
+export NORC_CHALLENGE_APP_SECRET_KEY="app secret"
+export NORC_CHALLENGE_APP_NAME="database name"
+export NORC_CHALLENGE_APP_USER="master database user"
+export NORC_CHALLENGE_APP_PASS="master database user password"
+export NORC_CHALLENGE_APP_HOST="host endpoint of the database"
+```
+
 Add additional notes about how to deploy this on a live system
-
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+Please follow standard github workflows and issue a pull request for contributing to the codebase.
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
+Not available.
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+* **Patrick Huarng** - *Initial work* - [GitHub](https://github.com/huarngpa/)
 
 ## License
 
