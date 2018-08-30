@@ -33,17 +33,15 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+`python3`, `pip3`, and `npm` for core language and dependency management.
 
-```
-Give examples
-```
+Ideally you should also have an account with AWS to provision the necessary infrastructure required to host the code. See *Installation* and *Deployment* section for more information on how to deploy locally or in a staging/production environment.
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* [django](https://www.djangoproject.com/) - The web framework used
+* [Vue.js](https://vuejs.org/) - Frontend JavaScript framework
+* [Python Social Auth](https://python-social-auth.readthedocs.io/en/latest/) - Authentication and authorization
 
 ### Installing
 
@@ -65,9 +63,9 @@ End with an example of getting some data out of the system or using it for a lit
 
 ## Running the tests
 
-Explain how to run the automated tests for this system
+Currently this section only contains information on how to run automated testing on the djangopart of the system. But the hope is that as I continue to build out the system I'll find out how to test the Vue.js components (NOTE: ask Ryan about how this is done at NORC).
 
-### Break down into end to end tests
+### JavaScript Testing (Vue.js)
 
 Explain what these tests test and why
 
@@ -75,7 +73,7 @@ Explain what these tests test and why
 Give an example
 ```
 
-### And coding style tests
+### Django Testing
 
 Explain what these tests test and why
 
@@ -97,6 +95,8 @@ export NORC_CHALLENGE_APP_NAME="database name"
 export NORC_CHALLENGE_APP_USER="master database user"
 export NORC_CHALLENGE_APP_PASS="master database user password"
 export NORC_CHALLENGE_APP_HOST="host endpoint of the database"
+export NORC_CHALLENGE_APP_FACEBOOK_KEY="facebook app key"
+export NORC_CHALLENGE_APP_FACEBOOK_SECRET="facebook app secret"
 ```
 
 Add additional notes about how to deploy this on a live system
