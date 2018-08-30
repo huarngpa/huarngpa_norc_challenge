@@ -5,19 +5,24 @@ This is an interview challenge application prepared for the NORC interview team.
 Work with this challenge app is ongoing. See below for achieved and planned delivery objectives:
 
 * <del>Deploy on AWS RDS (databases)</del>
-* Demonstrate understanding of django ORM/models
+* <del>Demonstrate understanding of django ORM/models</del>
+* <del>Demonstrate understanding of django idioms for login/logout</del>
+* Demonstrate understanding of MVC pattern and django idioms for it
+* Demonstrate understanding of how to use simple Vue.js directives
 * ...
 * Deploy basic django application on AWS EC2
 * Demonstrate Facebook OAuth2 implementation
-* Demonstrate understanding of django testing
+* Demonstrate understanding of django unit testing
+* Demonstrate understanding of django integration testing
 * ...
+* Demonstrate understanding of how to modify admin template and pages
 * ...
+* Convert from DjangoTemplates to Jinja2 template engine
+* Iterate and decouple, make a Node.js + Vue.js SPA frontend
 * ...
-* Deploy Route53 DNS
+* Deploy Route53 DNS to have prettier URL
 * Dockerize the application(s)
 * Configure Kubernetes to cluster docker containers
-* ...
-* ...
 * ...
 
 ## Getting Started
