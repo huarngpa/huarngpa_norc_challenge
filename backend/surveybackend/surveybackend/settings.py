@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'djangobasic.apps.DjangobasicConfig',
+    'surveybackend.core',  # Why is this OK?
     'social_django',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -57,7 +58,7 @@ ROOT_URLCONF = 'surveybackend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates'),],
+        'DIRS': [os.path.join(BASE_DIR, 'surveybackend/templates'),],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -133,4 +134,10 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
 LOGIN_REDIRECT_URL = 'home'
+
+
+SOCIAL_AUTH_FACEBOOK_KEY = os.environ['NORC_CHALLENGE_APP_FACEBOOK_KEY']
+SOCIAL_AUTH_FACEBOOK_SECRET = os.environ['NORC_CHALLENGE_APP_FACEBOOK_SECRET']
