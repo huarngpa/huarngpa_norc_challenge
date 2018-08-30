@@ -9,6 +9,7 @@
     <h1>NORC Challenge Application</h1>
     {% if user.is_authenticated %}
       Hi {{ user.username }}!
+      <a href="{% url 'settings' %}">settings</a>
       <a href="{% url 'logout' %}">logout</a>
     {% else %}
       <a href="{% url 'login' %}">login</a>
