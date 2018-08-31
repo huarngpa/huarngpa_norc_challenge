@@ -23,7 +23,7 @@ Work with this challenge app is ongoing. See below for achieved and planned deli
 * Iterate and decouple, make a Node.js + Vue.js SPA frontend
 * Demonstrate understanding of SASS/LESS compiled CSS framework
 * ...
-* Deploy Route53 and ELB so we can have prettier URL
+* <del>Deploy Route53 and ELB so we can have prettier URL</del>
 * Figure out how to get certs so we can do SSL
 * Dockerize the application(s)
 * Configure Kubernetes to cluster docker containers

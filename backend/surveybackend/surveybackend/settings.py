@@ -25,11 +25,7 @@ SECRET_KEY = os.environ['NORC_CHALLENGE_APP_SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    'ec2-18-212-179-14.compute-1.amazonaws.com',
-    'localhost',
-    '172.31.86.207',
-]
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
