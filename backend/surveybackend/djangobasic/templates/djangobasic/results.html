@@ -1,0 +1,15 @@
+{% extends 'djangobasic/base.html' %}
+
+{% block title %}Django Basic App{% endblock%}
+
+{% block subcontent %}
+    <h2>{{ question.question_text }}</h2>
+    <ul>
+        {% for choice in question.choice_set.all %}
+            {% for response in choice.response_set.all %}
+            <li>{{ response.user }} {{ response.choice }}</li>
+            {% endfor %}
+        {% endfor %}
+    </ul>
+    <a href="{% url 'djangobasic:index' %}">Back to survey</a>
+{% endblock %}

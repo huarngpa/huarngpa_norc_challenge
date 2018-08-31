@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'djangobasic/style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'djangobasic/css/bootstrap.min.css' %}">
+<script src="{% static 'djangobasic/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'djangobasic/js/popper.min.js' %}"></script>
+<script src="{% static 'djangobasic/js/jquery-3.3.1.min.js' %}"></script>
+<div class="container">
+{% block subcontent %}{% endblock %}
+</div>
+{% endblock %}
