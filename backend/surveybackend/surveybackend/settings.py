@@ -26,7 +26,8 @@ SECRET_KEY = os.environ['NORC_CHALLENGE_APP_SECRET_KEY']
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'ec2-18-212-179-14.compute-1.amazonaws.com'
+    'ec2-18-212-179-14.compute-1.amazonaws.com',
+    'localhost',
 ]
 
 
