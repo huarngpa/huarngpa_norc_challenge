@@ -37,6 +37,8 @@ These instructions will get you a copy of the project up and running on your loc
 
 Ideally you should also have an account with AWS to provision the necessary infrastructure required to host the code. See *Installation* and *Deployment* section for more information on how to deploy locally or in a staging/production environment.
 
+Most AWS AMIs have `python3` pre-packaged. But you'll need to install pip by running `sudo apt install python3-pip` and optionally `python3 -m pip install --user virtualenv` for Ubuntu systems.
+
 ## Built With
 
 * [django](https://www.djangoproject.com/) - The web framework used
