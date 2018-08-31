@@ -24,7 +24,9 @@ Work with this challenge app is ongoing. See below for achieved and planned deli
 * Demonstrate understanding of SASS/LESS compiled CSS framework
 * ...
 * <del>Deploy Route53 and ELB so we can have prettier URL</del>
-* Figure out how to get certs so we can do SSL
+* <del>Figure out how to get certs so we can do SSL</del>
+* Resolve static file serving issues (understand reverse proxy)
+* Resolve Facebook production login issues
 * Dockerize the application(s)
 * Configure Kubernetes to cluster docker containers
 * ...
