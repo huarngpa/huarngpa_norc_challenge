@@ -25,7 +25,9 @@ SECRET_KEY = os.environ['NORC_CHALLENGE_APP_SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'ec2-18-212-179-14.compute-1.amazonaws.com'
+]
 
 
 # Application definition
@@ -132,6 +134,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 
 LOGIN_URL = 'login'
