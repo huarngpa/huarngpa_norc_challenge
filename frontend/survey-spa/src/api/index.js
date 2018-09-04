@@ -61,10 +61,15 @@ const surveys = [{
     }, ]
 }]
 
-export function fetchSurveys() {
+export function fetchSurveys(surveyId) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            resolve(surveys)
+            const survey = surveys.find(survey => survey.id === surveyId)
+            if (survey) {
+                resolve(survey)
+            } else {
+                reject(Error('Survey does not exist'))
+            }
         }, 300) // simulate delay
     })
 }
