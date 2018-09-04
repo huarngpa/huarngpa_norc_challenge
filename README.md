@@ -45,6 +45,20 @@ Work with this challenge app is ongoing. See below for achieved and planned deli
 
 You must provision a unix or linux-like environment. The installation and deployment instructions will assume that you are using an ubuntu machine on AWS to host the application and related web server technologies.
 
+### For Frontend Systems
+
+This part of the documentation assumes that you are working in the `frontend/survey-spa` and wish to install the dependencies for the frontend vue-cli system.
+
+First download node on your Ubuntu system:
+
+```sh
+sudo apt-get install nodejs
+cd frontend/survey-spa
+npm install
+```
+
+### For Backend Systems
+
 AWS Ubuntu 16.04 AMIs have `python3` pre-packaged. But you'll need to install pip by running `sudo apt install python3-pip` so we can download other dependencies.
 
 Follow the deployment instructions below:
