@@ -61,7 +61,15 @@ const surveys = [{
     }, ]
 }]
 
-export function fetchSurveys(surveyId) {
+export function fetchSurveys() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(surveys)
+        }, 300) // simulate delay
+    })
+}
+
+export function fetchSurvey(surveyId) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             const survey = surveys.find(survey => survey.id === surveyId)
@@ -71,5 +79,14 @@ export function fetchSurveys(surveyId) {
                 reject(Error('Survey does not exist'))
             }
         }, 300) // simulate delay
+    })
+}
+
+export function saveSurveyResponse(surveyResponse) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log('Saving survey response...')
+            resolve()
+        }, 300)
     })
 }

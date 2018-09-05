@@ -10,12 +10,18 @@
     <section class="section">
       <div class="container">
         <div class="columns">
-          <div class="column is-10 is-offset-1">
-            <div v-for="question in survey.questions" @key="question.id">
-              <div class="column is offset-3 is-6">
+          <div>
+
+            <div
+              v-for="(question, idx) in survey.questions"
+              v-bind:key="question.id"
+              v-show="currentQuestion === idx">
+
+              <div class="column has-text-centered">
                 <h4 class="title has-text-centered">{{ question.text }}</h4>
               </div>
-              <div class="column is offset-3 is-6">
+
+              <div class="column has-text-centered">
                 <div class="control">
                   <div v-for="choice in question.choices" @key="choice.id">
                     <label class="radio">
@@ -24,7 +30,23 @@
                   </div>
                 </div>
               </div>
+
             </div>
+
+            <!-- Pagination buttons -->
+            <div class="column is-offset-one-quarter is-half">
+              <nav class="pagination is-centered" role="navigation" aria-label="pagination">
+                  <a class="pagination-previous" @click.stop="goToPreviousQuestion"><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp;&nbsp; Back</a>
+                  <a class="pagination-next" @click.stop="goToNextQuestion">&nbsp;&nbsp; Next<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+              </nav>
+            </div>
+
+            <!-- Submit -->
+            <div class="column has-text-centered">
+              <a v-if="surveyCompleted" class="button is-focused is-primary is-large"
+                @click.stop="handleSubmit">Submit</a>
+            </div>
+
           </div>
         </div>
       </div>
@@ -33,20 +55,49 @@
 </template>
 
 <script>
-import { fetchSurveys } from '@/api'
+import { fetchSurvey, saveSurveyResponse } from "@/api";
 export default {
   data() {
     return {
-      survey: {}
-    }
+      survey: {},
+      currentQuestion: 0
+    };
   },
   beforeMount() {
-    fetchSurveys(parseInt(this.$route.params.id))
-      .then((response) => {
-        this.survey = response
-      })
+    fetchSurvey(parseInt(this.$route.params.id)).then(response => {
+      this.survey = response;
+    });
+  },
+  methods: {
+    goToNextQuestion() {
+      if (this.currentQuestion === this.survey.questions.length - 1) {
+        this.currentQuestion = 0;
+      } else {
+        this.currentQuestion++;
+      }
+    },
+    goToPreviousQuestion() {
+      if (this.currentQuestion === 0) {
+        this.currentQuestion = this.survey.questions.length - 1;
+      } else {
+        this.currentQuest--;
+      }
+    },
+    handleSubmit() {
+      saveSurveyResponse(this.survey).then(() => this.$router.push("/"));
+    }
+  },
+  computed: {
+    surveyCompleted() {
+      if (this.survey.questions) {
+        const numQuestions = this.survey.questions.length;
+        const numCompleted = this.survey.questions.filter(q => q.choice).length;
+        return numQuestions === numCompleted;
+      }
+      return false;
+    }
   }
-}
+};
 </script>
 
 <style>

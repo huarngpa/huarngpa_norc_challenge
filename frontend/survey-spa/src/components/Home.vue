@@ -15,6 +15,9 @@
                 <p class="title">{{ survey.name }}</p>
                 <p class="subtitle">{{ survey.created_at.toDateString() }}</p>
             </div>
+            <div class="card-footer">
+                <router-link :to="`surveys/${survey.id}`" class="card-footer-item">Take Survey</router-link>
+            </div>
           </div>
         </div>
       </div>
@@ -23,19 +26,19 @@
 </template>
 
 <script>
-import { fetchSurveys } from '@/api'
+import { fetchSurveys } from "@/api";
 export default {
-  data () {
+  data() {
     return {
-      surveys: [],
-    }
+      surveys: []
+    };
   },
   beforeMount() {
     fetchSurveys().then(response => {
-      this.surveys = response
-    })
+      this.surveys = response;
+    });
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
