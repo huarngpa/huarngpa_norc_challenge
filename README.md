@@ -8,7 +8,7 @@ Work with this challenge app is ongoing. See below for achieved and planned deli
 * <del>Demonstrate understanding of django ORM/models</del>
 * <del>Demonstrate understanding of django idioms for login/logout</del>
 * <del>Demonstrate understanding of MVC pattern and django idioms for it</del>
-* Demonstrate understanding of how to use simple Vue.js directives
+* <del>Demonstrate understanding of how to use simple Vue.js directives</del>
 * ...
 * <del>Deploy basic django application on AWS EC2</del>
 * <del>Configure deployment scripts and web servers (NGINX and Gunicorn)</del>
@@ -20,8 +20,8 @@ Work with this challenge app is ongoing. See below for achieved and planned deli
 * ...
 * Demonstrate visualization integration with Chart.js or Highchart.js
 * Convert from DjangoTemplates to Jinja2 template engine
-* Iterate and decouple, make a Node.js + Vue.js SPA frontend
-* Demonstrate understanding of SASS/LESS compiled CSS framework
+* <del>Iterate and decouple, make a Node.js + Vue.js SPA frontend</del>
+* <del>Demonstrate understanding of SASS/LESS compiled CSS framework</del>
 * ...
 * <del>Deploy Route53 and ELB so we can have prettier URL</del>
 * <del>Figure out how to get certs so we can do SSL</del>
@@ -39,6 +39,7 @@ Work with this challenge app is ongoing. See below for achieved and planned deli
 * [pip3](https://pip.pypa.io/en/stable/) - Python dependency management
 * [django](https://www.djangoproject.com/) - The web framework used
 * [Vue.js](https://vuejs.org/) - Frontend JavaScript framework
+* [Bulma](https://bulma.io/) - CSS framework based on Flexbox
 * [Python Social Auth](https://python-social-auth.readthedocs.io/en/latest/) - Authentication and authorization
 
 ## Getting Started
