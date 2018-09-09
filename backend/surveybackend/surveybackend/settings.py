@@ -86,7 +86,7 @@ WSGI_APPLICATION = 'surveybackend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': os.environ['NORC_CHALLENGE_APP_NAME'],
         'USER': os.environ['NORC_CHALLENGE_APP_USER'],
         'PASSWORD': os.environ['NORC_CHALLENGE_APP_PASS'],
