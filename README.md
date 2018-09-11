@@ -60,6 +60,9 @@ First download node on your Ubuntu system:
 sudo apt-get install nodejs
 cd frontend/survey-spa
 npm install
+npm run dev  # serve with hot reload at localhost:8080
+npm run build  # build for production with minification
+npm run build --report  # production and bundle analyzer report
 ```
 
 ### For Backend Systems
