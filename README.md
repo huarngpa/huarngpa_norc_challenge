@@ -22,7 +22,8 @@ Work with this challenge app is ongoing. See below for achieved and planned deli
 * Convert from DjangoTemplates to Jinja2 template engine
 * <del>Iterate and decouple, make a Node.js + Vue.js SPA frontend</del>
 * <del>Demonstrate understanding of SASS/LESS compiled CSS framework</del>
-* Add state management capabilities to the frontend
+* <del>Add state management capabilities to the frontend</del>
+* Build out make new surveys component feature
 * Connect the frontend to the backend by exposing an API
 * Demonstrate both the JsonResponse and Rest framework approach
 * Add authentication capabilities to the frontend
