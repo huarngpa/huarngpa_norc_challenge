@@ -46,6 +46,7 @@ Work with this challenge app is ongoing. See below for achieved and planned deli
 * [pip3](https://pip.pypa.io/en/stable/) - Python dependency management
 * [django](https://www.djangoproject.com/) - The web framework used
 * [Vue.js](https://vuejs.org/) - Frontend JavaScript framework
+* [Vuex](https://vuex.vuejs.org/) - State management pattern and library for Vue.js reactive apps
 * [Bulma](https://bulma.io/) - CSS framework based on Flexbox
 * [Python Social Auth](https://python-social-auth.readthedocs.io/en/latest/) - Authentication and authorization
 
