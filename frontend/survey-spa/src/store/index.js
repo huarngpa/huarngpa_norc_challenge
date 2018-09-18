@@ -26,7 +26,10 @@ const actions = {
   },
   addSurveyResponse(context) {
     return saveSurveyResponse(context.state.currentSurvey)
-  }
+  },
+  submitNewSurvey(context, survey) {
+    return postNewSurvey(survey)
+  },
 };
 
 const mutations = {

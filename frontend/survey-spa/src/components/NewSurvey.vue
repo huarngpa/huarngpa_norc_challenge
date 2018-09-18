@@ -37,7 +37,29 @@
               <new-question @questionComplete="appendQuestion"/>
             </div>
             <div class="review" v-show="step === 'review'">
-              <h2>Review and Submit</h2>
+              <ul>
+                <li class="question"
+                  v-for="(question, qIdx) in questions"
+                  :key="`question-${qIdx}`">
+                  <div class="title">
+                    {{ question.question }}
+                    <span
+                      class="icon is-medium is-pulled-right delete-question"
+                      @click.stop="removeQuestion(question)">
+                      Delete
+                    </span>
+                  </div>
+                  <ul>
+                    <li v-for="(choice, cIdx) in question.choices" :key="`choice-${cIdx}`">
+                        {{ cIdx + 1 }}. {{ choice }}
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+
+              <div class="control">
+                <a class="button is-large is-primary" @click="submitSurvey">Submit</a>
+              </div>
             </div>
           </div>
         </div>
@@ -58,15 +80,42 @@ export default {
     return {
       step: 'name',
       name: '',
-      questions: []
+      questions: [],
     }
   },
   methods: {
     appendQuestion(newQuestion) {
-      this.question.push(newQuestion)
-    }
+      this.questions.push(newQuestion)
+    },
+    removeQuestion(question) {
+      const idx = this.questions.findIndex(q => q.question === question.question)
+      this.questions.splice(idx, 1)
+    },
+    submitSurvey() {
+      this.$store.dispatch('submitNewSurvey', {
+        name: this.name,
+        questions: this.questions,
+      })
+      .then(() => this.$router.push('/'))
+      .catch((error) => {
+        console.log('Error creating survey', error)
+        this.$router.push('/')
+      })
+    },
   },
 }
 </script>
 
-<style></style>
+<style>
+.question {
+  margin: 10px 20px 25px 10px;
+}
+.delete-question {
+  cursor: pointer;
+  padding: 10px;
+}
+.delete-question:hover {
+  background-color: lightgray;
+  border-radius: 50%;
+}
+</style>

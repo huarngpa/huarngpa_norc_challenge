@@ -20,7 +20,7 @@
 
   <h2 class="label is-large" v-show="choices.length > 0">Question Choices</h2>
   <div class="field has-addons" v-for="(choice, idx) in choices" v-bind:key="idx">
-    <div class="control">
+    <div class="control choice">
       <input type="text" class="input is-large" v-model="choices[idx]">
     </div>
     <div class="control">
@@ -54,7 +54,7 @@ export default {
         choices: this.choices.filter(c => !!c)
       })
       this.question = ''
-      this.choices = []
+      this.choices = ['']
     },
   },
 }
