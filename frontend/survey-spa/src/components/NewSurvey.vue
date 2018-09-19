@@ -46,7 +46,7 @@
                     <span
                       class="icon is-medium is-pulled-right delete-question"
                       @click.stop="removeQuestion(question)">
-                      Delete
+                      x
                     </span>
                   </div>
                   <ul>
