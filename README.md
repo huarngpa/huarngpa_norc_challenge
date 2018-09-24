@@ -46,6 +46,7 @@ Work with this challenge app is ongoing. See below for achieved and planned deli
 * [python3.6](https://www.python.org/) - Not to be confused with version 3.7, which does not work with django
 * [pip3](https://pip.pypa.io/en/stable/) - Python dependency management
 * [django](https://www.djangoproject.com/) - The web framework used
+* [Django REST framework](https://www.django-rest-framework.org/) - Framework for backend API
 * [Vue.js](https://vuejs.org/) - Frontend JavaScript framework
 * [Vuex](https://vuex.vuejs.org/) - State management pattern and library for Vue.js reactive apps
 * [Bulma](https://bulma.io/) - CSS framework based on Flexbox
@@ -227,10 +228,12 @@ Give an example
 
 ### Django Testing
 
-Explain what these tests test and why
+The testing framework in Django allows us to write application-specific unit and integration files in `test.py` files.As an example, see `backend/surveybackend/djangobasic/tests.py` for how tests can be written.
+
+To run these tests, run:
 
 ```
-Give an example
+python3.6 manage.py test djangobasic
 ```
 
 ## Contributing

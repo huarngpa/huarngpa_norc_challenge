@@ -6,8 +6,60 @@ from django.urls import reverse
 from django.views import generic
 
 from .models import Choice, Question, Response
+from .permissions import IsOwner, IsOwnerOrReadOnly
+from .serializers import (ChoiceSerializer, QuestionSerializer,
+                          ResponseSerializer,)
 
-# Create your views here.
+from rest_framework import (permissions, status, viewsets,)
+from rest_framework.views import APIView
+from rest_framework.decorators import permission_classes
+
+
+class QuestionViewSet(viewsets.ReadOnlyModelViewSet):
+    ''' This viewset automatically provies `list` and `detail` actions. '''
+
+    queryset = Question.objects.all()
+    serializer_class = QuestionSerializer
+    permission_classes = (permissions.IsAuthenticated,)
+
+
+class ChoiceViewSet(viewsets.ReadOnlyModelViewSet):
+    ''' This viewset automatically provies `list` and `detail` actions. '''
+
+    queryset = Choice.objects.all()
+    serializer_class = ChoiceSerializer
+    permission_classes = (permissions.IsAuthenticated,)
+
+
+class ResponseList(APIView):
+    ''' List all snippets, or create a new snippet. '''
+
+    @permission_classes((permissions.IsAuthenticated))
+    def get(self, request, format=None):
+        responses = Response.objects.all()
+        serializer = ResponseSerializer(responses, many=True)
+        if request.user.is_staff:
+            return Response(serializer.data)
+        serializer_data = [x for x in serializer.data
+                           if x.user == request.user]
+        return Response(serializer_data, status=status.HTTP_401_UNAUTHORIZED)
+
+    @permission_classes((permissions.IsAuthenticated))
+    def post(self, request, format=None):
+        serializer = ResponseSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class ResponseViewSet(viewsets.ModelViewSet):
+    ''' This viewset automatically provides `list`, `create`, `retrieve`,
+        `update`, and `destroy` actions. '''
+
+    queryset = Response.objects.all()
+    serializer_class = ResponseSerializer
+    permission_classes = (permissions.IsAuthenticated,)
 
 
 class IndexView(generic.ListView):

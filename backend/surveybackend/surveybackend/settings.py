@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'rest_framework',
     'djangobasic.apps.DjangobasicConfig',
     'surveybackend.core',  # Why is this OK?
     'social_django',
@@ -79,6 +80,13 @@ AUTHENTICATION_BACKENDS = (
 )
 
 WSGI_APPLICATION = 'surveybackend.wsgi.application'
+
+# Django REST framework
+
+#REST_FRAMEWORK = {
+#    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+#    'PAGE_SIZE': 10,
+#}
 
 
 # Database
