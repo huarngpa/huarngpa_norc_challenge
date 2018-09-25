@@ -4,11 +4,22 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.utils import timezone
 
-# Create your models here.
+
+class Survey(models.Model):
+
+    name = models.CharField(max_length=200)
+    created_at = models.DateTimeField(auto_now_add=True, blank=True)
+
+    class Meta:
+        ordering = ('created_at',)
+
+    def __str__(self):
+        return self.name
 
 
 class Question(models.Model):
 
+    survey = models.ForeignKey(Survey, related_name='questions', on_delete=models.CASCADE)
     question_text = models.CharField(max_length=200)
     pub_date = models.DateTimeField('date published')
 
@@ -25,7 +36,7 @@ class Question(models.Model):
 
 class Choice(models.Model):
 
-    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    question = models.ForeignKey(Question, related_name='choices', on_delete=models.CASCADE)
     choice_text = models.CharField(max_length=200)
 
     def __str__(self):
@@ -34,7 +45,7 @@ class Choice(models.Model):
 
 class Response(models.Model):
 
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, related_name='responses', on_delete=models.CASCADE)
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     choice = models.ForeignKey(Choice, on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True, blank=True)

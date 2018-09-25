@@ -12,9 +12,11 @@ app_name = 'djangobasic'
 
 # Create a router and register our viewsets with it.
 router = DefaultRouter()
+router.register(r'survey', views.SurveyViewSet)
 router.register(r'question', views.QuestionViewSet)
 router.register(r'choice', views.ChoiceViewSet)
 router.register(r'respond', views.ResponseViewSet)
+router.register(r'user', views.UserViewSet)
 
 
 urlpatterns = [

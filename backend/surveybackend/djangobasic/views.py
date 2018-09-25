@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from django.http import (Http404, HttpResponse, HttpResponseRedirect)
 from django.shortcuts import get_object_or_404, render
 from django.template import loader
@@ -8,13 +9,22 @@ from django.views import generic
 from . import models
 from .permissions import IsOwnerOrReadOnly
 from .serializers import (ChoiceSerializer, QuestionSerializer,
-                          ResponseSerializer,)
+                          ResponseSerializer, SurveySerializer,
+                          UserSerializer)
 
 from rest_framework.reverse import reverse as rf_reverse
 from rest_framework import (permissions, status, viewsets,)
 from rest_framework.views import APIView
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
+
+
+class SurveyViewSet(viewsets.ReadOnlyModelViewSet):
+    ''' This viewset automatically provies `list` and `detail` actions. '''
+
+    queryset = models.Survey.objects.all()
+    serializer_class = SurveySerializer
+    permission_classes = (permissions.IsAuthenticated,)
 
 
 class QuestionViewSet(viewsets.ReadOnlyModelViewSet):
@@ -31,6 +41,13 @@ class ChoiceViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = models.Choice.objects.all()
     serializer_class = ChoiceSerializer
     permission_classes = (permissions.IsAuthenticated,)
+
+
+class UserViewSet(viewsets.ReadOnlyModelViewSet):
+    ''' This viewset automatically provies `list` and `detail` actions. '''
+
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
 
 
 class ResponseViewSet(viewsets.ModelViewSet):
@@ -85,15 +102,7 @@ class ResponseViewSet(viewsets.ModelViewSet):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def partial_update(self, request, pk=None):
-        response = self.get_object(pk)
-        serializer = ResponseSerializer(response, data=request.data)
-        if serializer.is_valid():
-            if request.user.is_staff or \
-                    serializer.validated_data['user'] == request.user:
-                serializer.save()
-                return Response(serializer.data)
-            return Response(status=status.HTTP_401_UNAUTHORIZED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        return self.update(request, pk)
 
     def destroy(self, request, pk=None):
         response = self.get_object(pk)
