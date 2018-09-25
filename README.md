@@ -25,7 +25,7 @@ Work with this challenge app is ongoing. See below for achieved and planned deli
 * <del>Add state management capabilities to the frontend</del>
 * <del>Build out make new surveys component feature</del>
 * Connect the frontend to the backend by exposing an API
-* Demonstrate both the JsonResponse and Rest framework approach
+* <del>Demonstrate both the JsonResponse and Rest framework approach</del>
 * Add authentication capabilities to the frontend
 * Deploy the frontend to AWS infrastructure
 * ...
