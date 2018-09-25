@@ -22,5 +22,7 @@ urlpatterns = [
     path('<int:pk>/', login_required(views.DetailView.as_view()), name='detail'),
     path('<int:pk>/results/', login_required(views.ResultsView.as_view()), name='results'),
     path('<int:question_id>/respond/', views.respond, name='respond'),
-    path('api/', include(router.urls)),
+    url(r'^api/', include(router.urls)),
 ]
+
+
