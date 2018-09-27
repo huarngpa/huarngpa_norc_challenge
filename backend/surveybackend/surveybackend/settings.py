@@ -105,12 +105,6 @@ JWT_AUTH = {
     'JWT_REFRESH_EXPIRATION_DELTA': datetime.timedelta(days=7),
 }
 
-CORS_ORIGIN_WHITELIST = (
-    'localhost:8000',
-    'localhost:8080',
-)
-
-
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 

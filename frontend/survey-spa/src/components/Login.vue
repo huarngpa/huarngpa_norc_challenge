@@ -12,9 +12,9 @@
         <section class="section">
             <div class="container">
                 <div class="field">
-                    <label class="label is-large" for="email">Email:</label>
+                    <label class="label is-large" for="username">Username:</label>
                     <div class="control">
-                        <input type="email" class="input is-large" id="email" v-model="email">
+                        <input type="text" class="input is-large" id="username" v-model="username">
                     </div>
                 </div>
 
@@ -40,18 +40,18 @@ import { EventBus } from '@/utils'
 export default {
   data() {
     return {
-      email: '',
+      username: '',
       password: '',
       errorMsg: ''
     }
   },
   methods: {
     authenticate () {
-      this.$store.dispatch('login', { email: this.email, password: this.password })
+      this.$store.dispatch('login', { username: this.username, password: this.password })
         .then(() => this.$router.push('/'));
     },
     register () {
-      this.$store.dispatch('register', { email: this.email, password: this.password })
+      this.$store.dispatch('register', { username: this.username, password: this.password })
         .then(() => this.$router.push('/'));
     },
   },

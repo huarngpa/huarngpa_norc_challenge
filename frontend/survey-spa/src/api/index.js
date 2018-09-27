@@ -1,5 +1,8 @@
 import axios from "axios";
 
+axios.defaults.xsrfCookieName = 'csrftoken'
+axios.defaults.xsrfHeaderName = 'X-CSRFToken'
+
 const API_URL = "https://huarngpa.com";
 
 export function fetchSurveys(jwt) {
@@ -39,7 +42,7 @@ export function postNewSurvey(jwt, survey) {
 }
 
 export function authenticate(userData) {
-  return axios.post(`${API_URL}/login/`, userData);
+  return axios.post(`${API_URL}/api-token-auth/`, userData);
 }
 
 export function register(userData) {
