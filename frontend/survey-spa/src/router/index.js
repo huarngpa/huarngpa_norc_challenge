@@ -3,6 +3,8 @@ import Router from "vue-router";
 import Home from "@/components/Home";
 import Survey from "@/components/Survey";
 import NewSurvey from "@/components/NewSurvey";
+import Login from "@/components/Login";
+import store from "@/store";
 
 Vue.use(Router);
 
@@ -11,17 +13,43 @@ export default new Router({
     {
       path: "/",
       name: "Home",
-      component: Home
+      component: Home,
+      beforeEnter (to, from, next) {
+        if(!store.getters.isAuthenticated) {
+          next('/login');
+        } else {
+          next();
+        }
+      }
     },
     {
       path: "/surveys/:id",
       name: "Survey",
-      component: Survey
+      component: Survey,
+      beforeEnter (to, from, next) {
+        if(!store.getters.isAuthenticated) {
+          next('/login');
+        } else {
+          next();
+        }
+      }
     },
     {
       path: "/surveys",
       name: "NewSurvey",
-      component: NewSurvey
+      component: NewSurvey,
+      beforeEnter (to, from, next) {
+        if(!store.getters.isAuthenticated) {
+          next('/login');
+        } else {
+          next();
+        }
+      }
+    },
+    {
+      path: '/login',
+      name: 'Login',
+      component: Login
     }
   ]
 });

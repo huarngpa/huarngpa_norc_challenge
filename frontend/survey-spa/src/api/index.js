@@ -1,19 +1,50 @@
-import axios from 'axios'
+import axios from "axios";
 
-const API_URL = 'https://huarngpa.com/djangobasic/api'
+const API_URL = "https://huarngpa.com";
 
-export function fetchSurveys() {
+export function fetchSurveys(jwt) {
+  return axios.get(`${API_URL}/djangobasic/api/survey/`, {
+    headers: {
+      Authorization: `Bearer: ${jwt}`
+    }
+  });
 }
 
-export function fetchSurvey(surveyId) {
+export function fetchSurvey(jwt, surveyId) {
+  return axios.get(`${API_URL}/djangobasic/api/survey/{surveyId}/`, {
+    headers: {
+      Authorization: `Bearer: ${jwt}`
+    }
+  });
 }
 
-export function saveSurveyResponse(surveyResponse) {
+export function saveSurveyResponse(jwt, surveyResponse) {
+  // TODO
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      console.log("Saving survey response...");
+      resolve();
+    }, 300);
+  });
 }
 
-export function postNewSurvey(survey) {
+export function postNewSurvey(jwt, survey) {
+  // TODO
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      console.log("Saving survey...", survey);
+      resolve();
+    }, 300);
+  });
 }
 
+export function authenticate(userData) {
+  return axios.post(`${API_URL}/login/`, userData);
+}
+
+export function register(userData) {
+  return axios.post(`${API_URL}/signup/`, userData);
+}
 
 //const surveys = [{
 //    id: 1,
