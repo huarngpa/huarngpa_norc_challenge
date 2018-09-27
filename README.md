@@ -47,7 +47,8 @@ Work with this challenge app is ongoing. See below for achieved and planned deli
 * [Bulma](https://bulma.io/) - CSS framework based on Flexbox
 * [django](https://www.djangoproject.com/) - The web framework used
 * [Django REST framework](https://www.django-rest-framework.org/) - Framework for backend API
-* [Django REST framework JWT](https://getblimp.github.io/django-rest-framework-jwt/) JWT authentication framework
+* [Django REST framework JWT](https://getblimp.github.io/django-rest-framework-jwt/) - JWT authentication framework
+* [django-cors-headers](https://github.com/ottoyiu/django-cors-headers/) - Allows us to make cross-domain requests
 * [pip3](https://pip.pypa.io/en/stable/) - Python dependency management
 * [python3.6](https://www.python.org/) - Not to be confused with version 3.7, which does not work with django
 * [Python Social Auth](https://python-social-auth.readthedocs.io/en/latest/) - Authentication and authorization
