@@ -21,6 +21,9 @@ from django.views.generic.base import TemplateView
 
 from surveybackend.core import views as core_views
 
+from rest_framework_jwt.views import obtain_jwt_token
+from rest_framework_jwt.views import refresh_jwt_token
+
 
 urlpatterns = [
     path('djangobasic/', include('djangobasic.urls')),
@@ -31,5 +34,7 @@ urlpatterns = [
     url(r'^settings/$', core_views.settings, name='settings'),
     url(r'^settings/password/$', core_views.password, name='password'),
     url(r'^oauth/', include('social_django.urls', namespace='social')),
+    url(r'^api-token-auth', obtain_jwt_token),
+    url(r'^api-token-refresh', refresh_jwt_token),
     path('admin/', admin.site.urls),
 ]

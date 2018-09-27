@@ -24,9 +24,10 @@ Work with this challenge app is ongoing. See below for achieved and planned deli
 * <del>Demonstrate understanding of SASS/LESS compiled CSS framework</del>
 * <del>Add state management capabilities to the frontend</del>
 * <del>Build out make new surveys component feature</del>
-* Connect the frontend to the backend by exposing an API
 * <del>Demonstrate both the JsonResponse and Rest framework approach</del>
+* <del>Add JSON web token authentication to backend</del>
 * Add authentication capabilities to the frontend
+* Connect the frontend to the backend by exposing an API
 * Deploy the frontend to AWS infrastructure
 * ...
 * <del>Deploy Route53 and ELB so we can have prettier URL</del>
@@ -42,15 +43,17 @@ Work with this challenge app is ongoing. See below for achieved and planned deli
 ## Built With
 
 * [Amazon Web Services (AWS)](https://aws.amazon.com/) - Cloud infrastructure
-* [Ubuntu 16.04 LTS](http://www.ubuntu.com/cloud/services) - Ubuntu's cloud instance
-* [python3.6](https://www.python.org/) - Not to be confused with version 3.7, which does not work with django
-* [pip3](https://pip.pypa.io/en/stable/) - Python dependency management
+* [Axios.js](https://github.com/axios/axios) - Trendy fetch substitute for ES6
+* [Bulma](https://bulma.io/) - CSS framework based on Flexbox
 * [django](https://www.djangoproject.com/) - The web framework used
 * [Django REST framework](https://www.django-rest-framework.org/) - Framework for backend API
+* [Django REST framework JWT](https://getblimp.github.io/django-rest-framework-jwt/) JWT authentication framework
+* [pip3](https://pip.pypa.io/en/stable/) - Python dependency management
+* [python3.6](https://www.python.org/) - Not to be confused with version 3.7, which does not work with django
+* [Python Social Auth](https://python-social-auth.readthedocs.io/en/latest/) - Authentication and authorization
+* [Ubuntu 16.04 LTS](http://www.ubuntu.com/cloud/services) - Ubuntu's cloud instance
 * [Vue.js](https://vuejs.org/) - Frontend JavaScript framework
 * [Vuex](https://vuex.vuejs.org/) - State management pattern and library for Vue.js reactive apps
-* [Bulma](https://bulma.io/) - CSS framework based on Flexbox
-* [Python Social Auth](https://python-social-auth.readthedocs.io/en/latest/) - Authentication and authorization
 
 ## Deployment Documentation
 
