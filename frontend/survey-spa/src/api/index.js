@@ -1,14 +1,15 @@
 import axios from "axios";
 
-axios.defaults.xsrfCookieName = 'csrftoken'
-axios.defaults.xsrfHeaderName = 'X-CSRFToken'
+//axios.defaults.xsrfCookieName = 'csrftoken'
+//axios.defaults.xsrfHeaderName = 'X-CSRFToken'
 
-const API_URL = "https://huarngpa.com";
+//const API_URL = "https://huarngpa.com";
+const API_URL = "http://localhost:8000";
 
 export function fetchSurveys(jwt) {
   return axios.get(`${API_URL}/djangobasic/api/survey/`, {
     headers: {
-      Authorization: `Bearer: ${jwt}`
+      'Authorization': `Bearer ${jwt}`,
     }
   });
 }
@@ -16,7 +17,7 @@ export function fetchSurveys(jwt) {
 export function fetchSurvey(jwt, surveyId) {
   return axios.get(`${API_URL}/djangobasic/api/survey/{surveyId}/`, {
     headers: {
-      Authorization: `Bearer: ${jwt}`
+      'Authorization': `Bearer ${jwt}`,
     }
   });
 }

@@ -95,15 +95,25 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
         'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
         'rest_framework.authentication.BasicAuthentication',
     )
 }
 
 JWT_AUTH = {
-    'JWT_ALLOW_REFRESH': True,
+    #'JWT_ALLOW_REFRESH': True,
+    #'JWT_REFRESH_EXPIRATION_DELTA': datetime.timedelta(days=7),
+    'JWT_AUTH_HEADER_PREFIX': 'Bearer',
     'JWT_EXPIRATION_DELTA': datetime.timedelta(hours=1),
-    'JWT_REFRESH_EXPIRATION_DELTA': datetime.timedelta(days=7),
 }
+
+# TODO -- Replace with whitelisted hosts
+
+CORS_ORIGIN_ALLOW_ALL = True
+#CORS_ORIGIN_WHITELIST = (
+#    'localhost:8080',
+#    'localhost:8000',
+#)
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases

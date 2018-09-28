@@ -13,7 +13,8 @@
           <div class="card" v-for="survey in surveys" @key="survey.id">
             <div class="card-content">
                 <p class="title">{{ survey.name }}</p>
-                <p class="subtitle">{{ survey.created_at.toDateString() }}</p>
+                <!-- survey.created_at.toDateString() -->
+                <p class="subtitle">TBD -- fix</p>
             </div>
             <div class="card-footer">
                 <router-link :to="`surveys/${survey.id}`" class="card-footer-item">Take Survey</router-link>
