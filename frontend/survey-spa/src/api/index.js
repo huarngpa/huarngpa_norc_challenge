@@ -15,7 +15,7 @@ export function fetchSurveys(jwt) {
 }
 
 export function fetchSurvey(jwt, surveyId) {
-  return axios.get(`${API_URL}/djangobasic/api/survey/{surveyId}/`, {
+  return axios.get(`${API_URL}/djangobasic/api/survey/${surveyId}/`, {
     headers: {
       'Authorization': `Bearer ${jwt}`,
     }

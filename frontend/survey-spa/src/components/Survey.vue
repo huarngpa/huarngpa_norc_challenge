@@ -18,7 +18,7 @@
               v-show="currentQuestion === idx">
 
               <div class="column has-text-centered">
-                <h4 class="title has-text-centered">{{ question.text }}</h4>
+                <h4 class="title has-text-centered">{{ question.question_text }}</h4>
               </div>
 
               <div class="column has-text-centered">
@@ -26,7 +26,7 @@
                   <div v-for="choice in question.choices" @key="choice.id">
                     <label class="radio">
                       <input type="radio" v-model="question.choice" :value="choice.id">
-                      {{ choice.text }}</label>
+                      {{ choice.choice_text }}</label>
                   </div>
                 </div>
               </div>

@@ -2,14 +2,8 @@ import Vue from "vue";
 import Vuex from "vuex";
 
 // imports of AJAX functions go here
-import {
-  fetchSurveys,
-  fetchSurvey,
-  saveSurveyResponse,
-  postNewSurvey,
-  authenticate,
-  register
-} from "@/api";
+import { fetchSurveys, fetchSurvey, saveSurveyResponse, postNewSurvey,
+         authenticate, register } from "@/api";
 import { isValidJwt, EventBus } from '@/utils'
 
 Vue.use(Vuex);

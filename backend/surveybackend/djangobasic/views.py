@@ -26,7 +26,6 @@ class SurveyViewSet(viewsets.ReadOnlyModelViewSet):
 
     queryset = models.Survey.objects.all()
     serializer_class = SurveySerializer
-    authentication_classes = (JSONWebTokenAuthentication,)
     permission_classes = (permissions.IsAuthenticated,)
 
 
@@ -35,7 +34,6 @@ class QuestionViewSet(viewsets.ReadOnlyModelViewSet):
 
     queryset = models.Question.objects.all()
     serializer_class = QuestionSerializer
-    authentication_classes = (JSONWebTokenAuthentication,)
     permission_classes = (permissions.IsAuthenticated,)
 
 
@@ -44,7 +42,6 @@ class ChoiceViewSet(viewsets.ReadOnlyModelViewSet):
 
     queryset = models.Choice.objects.all()
     serializer_class = ChoiceSerializer
-    authentication_classes = (JSONWebTokenAuthentication,)
     permission_classes = (permissions.IsAuthenticated,)
 
 
@@ -62,7 +59,6 @@ class ResponseViewSet(viewsets.ModelViewSet):
 
     queryset = models.Response.objects.all()
     serializer_class = ResponseSerializer
-    authentication_classes = (JSONWebTokenAuthentication,)
     permission_classes = (permissions.IsAuthenticated,)
 
     def list(self, request):

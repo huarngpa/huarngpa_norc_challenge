@@ -14,7 +14,7 @@
             <div class="card-content">
                 <p class="title">{{ survey.name }}</p>
                 <!-- survey.created_at.toDateString() -->
-                <p class="subtitle">TBD -- fix</p>
+                <p class="subtitle">{{ new Date(survey.created_at).toDateString() }}</p>
             </div>
             <div class="card-footer">
                 <router-link :to="`surveys/${survey.id}`" class="card-footer-item">Take Survey</router-link>
