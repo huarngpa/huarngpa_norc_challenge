@@ -23,12 +23,18 @@ export function fetchSurvey(jwt, surveyId) {
 }
 
 export function saveSurveyResponse(jwt, surveyResponse) {
-  // TODO
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      console.log("Saving survey response...");
-      resolve();
-    }, 300);
+  var data = [];
+  for (var i = 0; i < surveyResponse['questions'].length; i++) {
+    var obj = {}
+    obj['question'] = surveyResponse['questions'][i]['id'];
+    obj['choice'] = surveyResponse['questions'][i]['choice'];
+    data.push(obj);
+  }
+  console.log('setSurveyResponse payload = ', data);
+  return axios.post(`${API_URL}/djangobasic/api/respond/`, { 'multiple': data }, {
+    headers: {
+      'Authorization': `Bearer ${jwt}`,
+    }
   });
 }
 

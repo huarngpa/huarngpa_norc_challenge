@@ -70,14 +70,26 @@ class ResponseViewSet(viewsets.ModelViewSet):
                            if x['user'] == request.user.id]
         return Response(serializer_data)
 
-    def create(self, request):
-        serializer = ResponseSerializer(data=request.data)
+    def serialize_and_create(self, request, data):
+        serializer = ResponseSerializer(data=data)
         if serializer.is_valid():
             if serializer.validated_data['user'] != request.user:
-                return Response(status=status.HTTP_401_UNAUTHORIZED)
+                return status.HTTP_401_UNAUTHORIZED
             serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            return status.HTTP_201_CREATED
+        return status.HTTP_400_BAD_REQUEST
+
+    def create(self, request):
+        rstatus = status.HTTP_400_BAD_REQUEST
+        if 'multiple' in request.data.keys():
+            for data in request.data['multiple']:
+                data['user'] = request.user.id
+                rstatus = self.serialize_and_create(request, data)
+                if rstatus != status.HTTP_201_CREATED:
+                    return Response(status=rstatus)
+        else:
+            self.serialize_and_create(request, data)
+        return Response(status=rstatus)
 
     def get_object(self, pk):
         try:

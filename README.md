@@ -26,8 +26,8 @@ Work with this challenge app is ongoing. See below for achieved and planned deli
 * <del>Build out make new surveys component feature</del>
 * <del>Demonstrate both the JsonResponse and Rest framework approach</del>
 * <del>Add JSON web token authentication to backend</del>
-* Add authentication capabilities to the frontend
-* Connect the frontend to the backend by exposing an API
+* <del>Add authentication capabilities to the frontend</del>
+* <del>Connect the frontend to the backend by exposing an API</del>
 * Deploy the frontend to AWS infrastructure
 * ...
 * <del>Deploy Route53 and ELB so we can have prettier URL</del>

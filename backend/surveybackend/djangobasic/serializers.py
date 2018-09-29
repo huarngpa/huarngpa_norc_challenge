@@ -32,7 +32,7 @@ class ResponseSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Response
-        fields = ('id', 'question', 'choice', 'created')
+        fields = ('id', 'user', 'question', 'choice', 'created')
 
 
 class UserSerializer(serializers.ModelSerializer):
