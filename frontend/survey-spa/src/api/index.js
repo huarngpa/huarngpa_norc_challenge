@@ -1,10 +1,6 @@
 import axios from "axios";
 
-//axios.defaults.xsrfCookieName = 'csrftoken'
-//axios.defaults.xsrfHeaderName = 'X-CSRFToken'
-
-//const API_URL = "https://huarngpa.com";
-const API_URL = "http://localhost:8000";
+const API_URL = "https://huarngpa.com";
 
 export function fetchSurveys(jwt) {
   return axios.get(`${API_URL}/djangobasic/api/survey/`, {
