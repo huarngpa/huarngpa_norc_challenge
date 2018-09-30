@@ -52,7 +52,7 @@ Work with this challenge app is ongoing. See below for achieved and planned deli
 * [pip3](https://pip.pypa.io/en/stable/) - Python dependency management
 * [python3.6](https://www.python.org/) - Not to be confused with version 3.7, which does not work with django
 * [Python Social Auth](https://python-social-auth.readthedocs.io/en/latest/) - Authentication and authorization
-* [Ubuntu 16.04 LTS](http://www.ubuntu.com/cloud/services) - Ubuntu's cloud instance
+* [Ubuntu 18.04 LTS](http://www.ubuntu.com/cloud/services) - Ubuntu's cloud instance
 * [Vue.js](https://vuejs.org/) - Frontend JavaScript framework
 * [Vuex](https://vuex.vuejs.org/) - State management pattern and library for Vue.js reactive apps
 
@@ -68,6 +68,7 @@ First download node on your Ubuntu system:
 
 ```sh
 sudo apt-get install nodejs
+sudo apt-get install npm
 cd frontend/survey-spa
 npm install
 npm run dev  # serve with hot reload at localhost:8080
@@ -95,6 +96,7 @@ The instructions above downloads some initial, critical web technologies. We the
 cd huarngpa_norc_challenge
 python3 -m virtualenv env
 source env/bin/activate
+pip3 install gunicorn
 pip3 install -r requirements.txt
 pip3 install psycopg2
 ```
@@ -131,17 +133,23 @@ After=network.target
 User=ubuntu
 Group=www-data
 WorkingDirectory=/home/ubuntu/huarngpa_norc_challenge/backend/surveybackend
-Environment=NORC_CHALLENGE_APP_SECRET_KEY=REPLACE
-Environment=NORC_CHALLENGE_APP_NAME=REPLACE
-Environment=NORC_CHALLENGE_APP_USER=REPLACE
-Environment=NORC_CHALLENGE_APP_PASS=REPLACE
-Environment=NORC_CHALLENGE_APP_HOST=REPLACE
-Environment=NORC_CHALLENGE_APP_FACEBOOK_KEY=REPLACE
-Environment=NORC_CHALLENGE_APP_FACEBOOK_SECRET=REPLACE
+EnvironmentFile=/home/ubuntu/.env
 ExecStart=/home/ubuntu/huarngpa_norc_challenge/env/bin/gunicorn --access-logfile - --workers 3 --bind unix:/home/ubuntu/huarngpa_norc_challenge/backend/surveybackend/surveybackend.sock surveybackend.wsgi:application
 
 [Install]
 WantedBy=multi-user.target
+```
+
+Then make an .env file at `/home/ubuntu/.env` containing the following configurations:
+
+```
+NORC_CHALLENGE_APP_SECRET_KEY=REPLACE
+NORC_CHALLENGE_APP_NAME=REPLACE
+NORC_CHALLENGE_APP_USER=REPLACE
+NORC_CHALLENGE_APP_PASS=REPLACE
+NORC_CHALLENGE_APP_HOST=REPLACE
+NORC_CHALLENGE_APP_FACEBOOK_KEY=REPLACE
+NORC_CHALLENGE_APP_FACEBOOK_SECRET=REPLACE
 ```
 
 And then start the gunicorn daemon:
